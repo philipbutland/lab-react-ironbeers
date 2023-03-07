@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.beerpic{
+  margin: 0 100px 50px 100px;
+  text-align: left;
+}
+
+.oneBeerPic{
+  width: 20px;
+}
+
+.onebeer{
+
+}
