@@ -13,7 +13,7 @@ code {
 }
 
 .beerpic{
-  margin: 0 100px 50px 100px;
+  margin: 50px 100px 0 100px;
   text-align: left;
 }
 
@@ -21,6 +21,39 @@ code {
   width: 20px;
 }
 
-.onebeer{
+.singleBeerPic{
+  width: 100px;
+  margin-top: 50px;
+}
 
+.beerName{
+  font-size: 24px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.beerTagline{
+  font-size: 14pt;
+}
+
+.beerFirstBrewed{
+  font-weight: bold;
+}
+
+.beerTextBox{
+  margin: 0 50px;
+}
+
+.beerTagAndBrewed{
+  display: flex;
+  justify-content: space-between;
+}
+
+.beerDescription{
+  margin: 10px 0;
+  text-align: justify;
+}
+
+.beerAttenuationContributed{
+  text-align: left;
 }
