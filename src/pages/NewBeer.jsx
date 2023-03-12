@@ -1,7 +1,7 @@
 import GoHome from "../component/GoHome"
 import axios from 'axios'
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 
 function NewBeer(){
 
@@ -12,11 +12,11 @@ function NewBeer(){
     const [brewers_tips,setBrewers_tips] = useState('')
     const [attenuation_level,setAttenuation_level] = useState(0)
     const [contributed_by,setContributed_by] = useState('')
-
+    const navigate = useNavigate()
 
     function handleSubmit(e){
         e.preventDefault()
-        const postedBeer = {name, tagline, description, first_brewed, brewers_tips, attenuation_level, contributed_by}
+        const postedBeer = {name, tagline, description, first_brewed, brewers_tips, attenuation_level: Number(attenuation_level), contributed_by}
         axios.post('https://ih-beers-api2.herokuapp.com/beers/new',postedBeer)
         .then(()=>{
             setName("")
@@ -27,6 +27,7 @@ function NewBeer(){
             setAttenuation_level(0)
             setContributed_by("")
 
+            navigate("/beers")
             alert("New beer successfully saved to database!")
         })
     }
@@ -36,34 +37,35 @@ function NewBeer(){
             <GoHome></GoHome>
             <h1>New Beer</h1>
             <form action="" onSubmit={handleSubmit}>
-                <label htmlFor="" className="beerInputField" >
-                    <div className="beerLabel">Name</div>
-                    <input className="beerInput" type="text" value={name} onChange={(e)=>setName(e.target.value)}/>
+
+                <label htmlFor="" className="beerInput" >
+                    Name
+                    <input type="text" className="beerInputField" value={name} onChange={(e)=>setName(e.target.value)}/>
                 </label> 
-                <label htmlFor="" className="beerInputField">
-                    <div className="beerLabel">Tagline</div>
-                    <input className="beerInput" type="text" value={tagline} onChange={(e)=>setTagline(e.target.value)}/>
+                <label htmlFor="" className="beerInput">
+                    Tagline
+                    <input type="text" className="beerInputField" value={tagline} onChange={(e)=>setTagline(e.target.value)}/>
                 </label> 
-                <label htmlFor="" className="beerInputField">
-                    <div className="beerLabel">Description</div>
-                    <input className="beerHighInput" type="text" value={description} onChange={(e)=>setDescription(e.target.value)}/>
+                <label htmlFor="" className="beerInput">
+                    Description
+                    <input type="text" className="beerInputField" value={description} onChange={(e)=>setDescription(e.target.value)}/>
                 </label>
-                <label htmlFor="" className="beerInputField" >
-                    <div className="beerLabel">First Brewed</div>
-                    <input className="beerInput" type="text" value={first_brewed} onChange={(e)=>setFirst_brewed(e.target.value)}/>
+                <label htmlFor="" className="beerInput" >
+                    First Brewed
+                    <input type="text" className="beerInputField" value={first_brewed} onChange={(e)=>setFirst_brewed(e.target.value)}/>
                 </label> 
-                <label htmlFor="" className="beerInputField">
-                    <div className="beerLabel">Brewer's Tips</div>
-                    <input className="beerInput" type="text" value={brewers_tips} onChange={(e)=>setBrewers_tips(e.target.value)}/>
+                <label htmlFor="" className="beerInput">
+                    Brewer's Tips
+                    <input type="text" className="beerInputField" value={brewers_tips} onChange={(e)=>setBrewers_tips(e.target.value)}/>
                 </label> 
-                <label htmlFor="" className="beerInputField">
-                    <div className="beerLabel">Attenuation Level</div>
-                    <input className="beerInput" type="text" value={attenuation_level} onChange={(e)=>setAttenuation_level(e.target.value)}/>
+                <label htmlFor="" className="beerInput">
+                    Attenuation Level
+                    <input type="number" className="beerInputField" value={attenuation_level} onChange={(e)=>setAttenuation_level(e.target.value)}/>
                 </label> 
-                <label htmlFor="" className="beerInputField">
-                    <div className="beerLabel">Contributed by</div>
-                    <input className="beerInput" type="text" value={contributed_by} onChange={(e)=>setContributed_by(e.target.value)}/>
-                </label> 
+                <label htmlFor="" className="beerInput">
+                    Contributed by
+                    <input type="text" className="beerInputField" value={contributed_by} onChange={(e)=>setContributed_by(e.target.value)}/>
+                </label>
                 <button className="beerButton">Add New Beer</button>
             </form>
         </div>

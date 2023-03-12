@@ -7,6 +7,7 @@ import RandomBeer from "./pages/RandomBeer";
 import { Routes, Route } from "react-router-dom"; 
  
 function App() {
+
   return (
     <div className="App">
       <Routes>
@@ -14,7 +15,7 @@ function App() {
         <Route path="/beers" element={<Beers />} />   
         <Route path='/beers/:beerId' element={<BeerDetails />} />   
         <Route path="/newbeer" element={<NewBeer />} />      
-        <Route path="/randombeer" element={<RandomBeer />} />      
+        <Route path="/randombeer" element={<RandomBeer />} />
       </Routes>
     </div>
   );

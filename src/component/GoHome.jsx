@@ -5,7 +5,7 @@ function GoHome() {
     return(
         <div>
             <NavLink to="/">
-                <img src={homeIcon} alt="Home Icon"></img>
+                <img src={homeIcon} alt="Home Icon" className="homeIcon"></img>
             </NavLink>
         </div>
     )
